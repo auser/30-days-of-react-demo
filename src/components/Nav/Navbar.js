@@ -17,7 +17,7 @@ export const Navbar = ({currentUser}) => {
           About
       </Link>
 
-      {currentUser.loggedIn ?
+      {currentUser && currentUser.loggedIn ?
         <Link
           to="/logout"
           className="link"

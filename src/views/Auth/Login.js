@@ -1,7 +1,7 @@
 import React from 'react';
 
 export class Login extends React.Component {
-  static contextTypes = {
+  static contextTypes: {
     router: React.PropTypes.object
   }
 

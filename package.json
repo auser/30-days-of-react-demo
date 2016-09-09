@@ -2,8 +2,27 @@
   "name": "30days",
   "version": "0.0.1",
   "private": true,
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "automock": true,
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs",
+      "<rootDir>/node_modules/enzyme",
+      "<rootDir>/node_modules/sinon"
+    ]
+  },
   "devDependencies": {
-    "react-scripts": "0.2.3"
+    "babel-jest": "^15.0.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "enzyme": "^2.4.1",
+    "jest-cli": "^15.1.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-scripts": "0.2.3",
+    "redux-mock-store": "^1.2.0",
+    "sinon": "^1.17.5"
   },
   "dependencies": {
     "react": "^15.3.1",
@@ -16,7 +35,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest --verbose"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
