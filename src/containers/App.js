@@ -1,5 +1,4 @@
 import React from 'react';
-import 'whatwg-fetch';
 
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import Index from './Index';
