@@ -1,12 +1,19 @@
 /* eslint-disable */
-
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
 import sinon from 'sinon';
 
+jest.unmock('react-addons-test-utils');
 jest.unmock('../Navbar');
 import Navbar from '../Navbar';
 
+class TestWrapper extends React.Component {
+  render() {
+    return (<div>{this.props.children}</div>)
+  }
+}
 describe('Navbar', function() {
   let wrapper;
 
@@ -33,8 +40,7 @@ describe('Navbar', function() {
       const link = wrapper
         .findWhere(n => n.props().to === '/about')
       expect(link).toBeDefined();
-      expect(link.childAt(0).text())
-        .toBe('About')
+      expect(link.childAt(0).text()).toBe('About')
     });
   });
 
@@ -47,11 +53,19 @@ describe('Navbar', function() {
       });
 
       it('shows a link for Login', () => {
-        link = wrapper
-          .findWhere(n => n.props().to === '/login');
+        link = wrapper.find({to: '/login'});
         expect(link.length).toEqual(1);
         expect(link.childAt(0).text()).toBe('Login')
       });
+
+      it('thinkgs', () => {
+        link = wrapper
+          .find('Link')
+          .find({to: '/login'})
+
+        expect(link.html())
+          .toBe('<a class="link">Login</a>')
+      })
     });
 
     describe('that is logged in', function() {
@@ -70,5 +84,5 @@ describe('Navbar', function() {
         expect(link.childAt(0).text()).toBe('Logout');
       });
     });
-  })
+  });
 });

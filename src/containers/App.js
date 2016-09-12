@@ -9,6 +9,17 @@ import Login from '../views/Auth/Login';
 import Logout from '../views/Auth/Logout';
 
 export class App extends React.Component {
+  static childContextTypes = {
+    location: React.PropTypes.object
+  }
+
+  getChildContext() {
+    return {
+      location: this.props.location
+    }
+  }
+
+
   render() {
     const createElement = (Component, props) => {
       return <Component {...props} actions={this.props.actions} />

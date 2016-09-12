@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="auth-flow"
+    errors="0" failures="1" hostname="" id="" package="auth-flow" skipped="0"
+    tests="1" time="0.007000" timestamp="Mon, 12 Sep 2016 16:44:51 GMT">
+  
+    <testcase name="get to login page" time="0.007000" assertions="0"><failure message="AssertionError: [Function: commandFn] == &#39;/login&#39; - expected &quot;/login&quot; but got: &quot;function commandFn() {">      var args = Array.prototype.slice.call(arguments);
+
+      var originalStackTrace;
+      if (commandFn.stackTrace) {
+        originalStackTrace = commandFn.stackTrace;
+      } else {
+        var err = new Error;
+        Error.captureStackTrace(err, arguments.callee);
+        originalStackTrace = err.stack;
+      }
+
+      CommandQueue.add(name, command, context, args, originalStackTrace);
+      return client.api; // for chaining
+    }&quot;
+    at Object.module.exports.get to login page (/Users/auser/Development/javascript/mine/sample-apps/30days/30days/tests/auth-flow.js:10:12)</failure>
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

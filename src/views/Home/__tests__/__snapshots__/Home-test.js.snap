@@ -1,0 +1,33 @@
+exports[`Home renders a logout view 1`] = `
+<div
+  className="content">
+  <h1>
+    Welcome home!
+  </h1>
+  <p>
+    The time is 
+    [object Object]
+  </p>
+  <button
+    onClick={[Function onClick]}>
+    Update time
+  </button>
+</div>
+`;
+
+exports[`Home renders a logout view 2`] = `
+<div
+  className="content">
+  <h1>
+    Welcome home!
+  </h1>
+  <p>
+    The time is 
+    [object Object]
+  </p>
+  <button
+    onClick={[Function onClick]}>
+    Update time
+  </button>
+</div>
+`;

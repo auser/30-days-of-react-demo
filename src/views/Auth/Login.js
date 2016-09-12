@@ -1,8 +1,8 @@
 import React from 'react';
 
 export class Login extends React.Component {
-  static contextTypes: {
-    router: React.PropTypes.object
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
   }
 
   constructor(props, context) {
@@ -14,6 +14,7 @@ export class Login extends React.Component {
     evt.preventDefault();
     const {actions} = this.props;
     actions.currentUser.login(this.state);
+console.log('context ->', this.context);
     this.context.router.replace('/');
   }
 

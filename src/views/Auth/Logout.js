@@ -1,8 +1,8 @@
 import React from 'react';
 
 export class Logout extends React.Component {
-  static contextTypes: {
-    router: React.PropTypes.object
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
   }
 
   _onLogout() {
