@@ -29,6 +29,9 @@ const apiMiddleware = store => next => action => {
     delete newAction.meta;
     store.dispatch(newAction);
   })
+  .catch(err => {
+    console.error('Got an error fetching', err);
+  })
 }
 
 export const configureStore = () => {
@@ -37,10 +40,11 @@ export const configureStore = () => {
     currentUser: currentUser.reducer
   });
 
-  let middleware = [
-    loggingMiddleware,
-    apiMiddleware
-  ];
+  let middleware = [apiMiddleware];
+  if ("development" === process.env.NODE_ENV) {
+    middleware.unshift(loggingMiddleware);
+  }
+
   const store = createStore(reducer, applyMiddleware(...middleware));
 
   const actions = {
