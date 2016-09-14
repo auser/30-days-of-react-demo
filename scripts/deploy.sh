@@ -1,11 +1,19 @@
 #!/bin/bash
-set -e # Exit with nonzero exit code if anything fails
+set -e
 
 SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
 
 function doCompile {
-  ./compile.sh
+  (
+    npm run build
+    git checkout -B gh-pages
+    git add -f build
+    git commit -am "Rebuild website"
+    git filter-branch -f --prune-empty --subdirectory-filter build
+    git push -f origin gh-pages
+    git checkout -
+  )
 }
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
