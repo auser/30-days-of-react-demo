@@ -22,6 +22,9 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
     exit 0
 fi
 
+git config user.name "Travis CI"
+git config user.email "$COMMIT_AUTHOR_EMAIL"
+
 # Save some useful information
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
@@ -42,8 +45,6 @@ doCompile
 
 # Now let's go have some fun with the cloned repo
 cd out
-git config user.name "Travis CI"
-git config user.email "ari@fullstack.io"
 
 # Checkout gh-pages
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
