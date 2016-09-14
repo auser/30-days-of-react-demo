@@ -51,6 +51,7 @@
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.22.0",
     "http-proxy-middleware": "0.17.0",
+    "jest": "^15.1.1",
     "jest-cli": "^15.1.1",
     "json-loader": "0.5.4",
     "object-assign": "4.1.0",
@@ -81,7 +82,8 @@
   "scripts": {
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
-    "test": "node ./scripts/test.js"
+    "release": "node ./scripts/release.js",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"

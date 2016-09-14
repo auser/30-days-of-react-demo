@@ -19,7 +19,7 @@ describe('Navbar', function() {
 
   it('wraps content in a div with .navbar class', () => {
     wrapper = shallow(<Navbar />);
-    expect(wrapper.find('.navbar')).toBeTruthy();
+    expect(wrapper.find('.navbar').length).toEqual(1);
   });
 
   describe('constant links', function() {
