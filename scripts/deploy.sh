@@ -4,10 +4,14 @@ set -e # Exit with nonzero exit code if anything fails
 SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
 
+function doCompile {
+  ./compile.sh
+}
+
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
     echo "Skipping deploy; just doing a build."
-    npm run spec
+    doCompile
     exit 0
 fi
 
@@ -27,16 +31,16 @@ cd ..
 rm -rf out/**/* || exit 0
 
 # Run our compile script
-npm run spec
+doCompile
 
 # Now let's go have some fun with the cloned repo
 cd out
 git config user.name "Travis CI"
-git config user.email "d@domenic.me"
+git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-# If there are no changes (e.g. this is a README update) then just bail.
+# If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if [ -z `git diff --exit-code` ]; then
-    echo "No changes to the spec on this push; exiting."
+    echo "No changes to the output on this push; exiting."
     exit 0
 fi
 
