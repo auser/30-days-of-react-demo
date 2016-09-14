@@ -6,7 +6,7 @@ export const Home = (props) => {
 
   return (
     <div className="content">
-      <h1>Welcome</h1>
+      <h1>Welcome to github pages</h1>
       <p>The time is {currentTime.toString()}</p>
       <button onClick={() => actions.currentTime.updateTime({})}>
         Update time
