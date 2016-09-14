@@ -1,6 +1,7 @@
 env:
   global:
   - ENCRYPTION_LABEL: 5ebd09854806
+  - secure: H4kiR8CCAJKd/yTq90/53PN17N3fc8BUj/AUxRwp+E2nQqIsK9b0+uHBcod8Fgw+cErx6qVGNxdRDgU/tKlHuq+4Vksib495LQt4iKyNJO6Dh4CFTp3AJ2pZq1cOS5BbbE4cElcvuMVMiiYvKaLQruvkktj1Tr642lyIlrLkFSRcpFVPCgofCsnYxPNBuaTNgJGT1iyKGa/6WxJVJ2jrJwWLkKj0KRhulfCqIIgiJ5RBBIXaPggER+Wa114WxBolyzmTe735pwsdMLmRYw50/2onqS31iwo7JCKpbRR94wHnFZYcObDDF5PMY+62dcEetvHR9cfEDt5yOKsRsTVQgQpypbEHUi9tSVS5OS+UU5M7AofSZ3Du0rI3ANILCR2BUADJFkZdSyVzcmyExtX6/DNrZM3M4cbVXys+5PgyMzT4L+yl+P/OOgSjp2y2F4jKmwICezfst0A6ClIQJYL+cjSE3/yoUE55y9rLeipFYdfMGO3VEUYJ7HS2KjQYQYUaoRZ3tKKbesWR3EqQ4HVoElAQrLohtlighCtUYvZsBD7wZmRrQu0ILtTSN7W6Yz4932kdfL7lRenUtatqbkB/4arRpBDIpx4FFwBXe1j7YyDD5ftomgobzAxzghJWw7MaIuZ4BZ951i8PIMMG+cqmf4fZ6QY9WVaGovJRtGMzioQ=
 language: node_js
 node_js:
 - 5.4
@@ -8,4 +9,4 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_f71798f093d1_key -iv $encrypted_f71798f093d1_iv
   -in travis_deploy_rsa.pub.enc -out deploy_key -d
 after_success:
-  - bash scripts/deploy.sh
+- bash scripts/deploy.sh
