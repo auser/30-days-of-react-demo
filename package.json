@@ -1,19 +1,11 @@
 {
-  "name": "30days",
-  "version": "0.0.1",
-  "private": true,
-  "jest": {
-    "automock": true,
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react",
-      "<rootDir>/node_modules/react-dom",
-      "<rootDir>/node_modules/react-addons-test-utils",
-      "<rootDir>/node_modules/fbjs",
-      "<rootDir>/node_modules/enzyme",
-      "<rootDir>/node_modules/sinon",
-      "<rootDir>/node_modules/redux",
-      "<rootDir>/node_modules/react-redux"
-    ]
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.7.0",
+    "redux": "^3.6.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "6.4.0",
@@ -71,21 +63,30 @@
     "webpack-dev-server": "1.14.1",
     "whatwg-fetch": "1.0.0"
   },
-  "dependencies": {
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.7.0",
-    "redux": "^3.6.0",
-    "whatwg-fetch": "^1.0.0"
-  },
-  "scripts": {
-    "start": "node ./scripts/start.js",
-    "build": "node ./scripts/build.js",
-    "release": "node ./scripts/release.js",
-    "test": "jest"
-  },
   "eslintConfig": {
     "extends": "./config/eslint.js"
-  }
+  },
+  "homepage": "http://auser.github.io/30-days-of-react-demo",
+  "jest": {
+    "automock": true,
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs",
+      "<rootDir>/node_modules/enzyme",
+      "<rootDir>/node_modules/sinon",
+      "<rootDir>/node_modules/redux",
+      "<rootDir>/node_modules/react-redux"
+    ]
+  },
+  "name": "30days",
+  "private": true,
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "release": "node ./scripts/release.js",
+    "start": "node ./scripts/start.js",
+    "test": "jest"
+  },
+  "version": "0.0.1"
 }
