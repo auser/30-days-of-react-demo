@@ -7,12 +7,11 @@ TARGET_BRANCH="gh-pages"
 function doCompile {
   (
     npm run build
-    git checkout -B gh-pages
+    git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
     git add -f build
     git commit -am "Rebuild website"
     git filter-branch -f --prune-empty --subdirectory-filter build
     git push -f origin gh-pages
-    git checkout -
   )
 }
 
@@ -32,7 +31,7 @@ SHA=`git rev-parse --verify HEAD`
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
 git clone $REPO out
 cd out
-git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+git checkout $SOURCE_BRANCH || git checkout --orphan $SOURCE_BRANCH
 cd ..
 
 # Clean out existing contents
@@ -40,6 +39,9 @@ rm -rf out/**/* || exit 0
 
 # Run our compile script
 doCompile
+
+# Checkout gh-pages
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 
 # Now let's go have some fun with the cloned repo
 cd out

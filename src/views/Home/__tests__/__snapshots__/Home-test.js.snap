@@ -2,7 +2,7 @@ exports[`Home renders a logout view 1`] = `
 <div
   className="content">
   <h1>
-    Deployed to github pages
+    Welcome home!
   </h1>
   <p>
     The time is 
@@ -19,7 +19,7 @@ exports[`Home renders a logout view 2`] = `
 <div
   className="content">
   <h1>
-    Deployed to github pages
+    Welcome home!
   </h1>
   <p>
     The time is 
