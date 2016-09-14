@@ -1,8 +1,10 @@
+script: bash ./scripts/deploy.sh
+env:
+  global:
+  - ENCRYPTION_LABEL: 5ebd09854806
 language: node_js
 node_js:
-  - "5.4"
-deploy:
-  provider: script
-  script: scripts/deploy.sh
-  on:
-    branch: master
+- stable
+before_install:
+- openssl aes-256-cbc -K $encrypted_f71798f093d1_key -iv $encrypted_f71798f093d1_iv
+  -in travis_deploy_rsa.pub.enc -out ~\/.ssh/travis_deploy_rsa.pub -d
