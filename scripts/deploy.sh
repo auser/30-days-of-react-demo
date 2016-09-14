@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -ex
 git checkout -B gh-pages
 git add -f build
 git commit -am "Rebuild website"
